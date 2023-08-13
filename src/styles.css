@@ -1,13 +1,21 @@
-/* styles.css */
-@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
-
 body {
   place-content: normal;
-  background: rgb(250, 210, 96);
-  background: linear-gradient(180deg, rgba(250, 210, 96, 1) 0%, rgba(245, 187, 18, 1) 35%, rgba(189, 144, 12, 0.7763699229691876) 100%);
-  font-family: 'Pokemon Solid', sans-serif;
+  background: linear-gradient(180deg, rgb(250 210 96 / 85%) 0%, rgb(252 194 25 / 81%) 35%, rgb(189 144 12 / 74%) 100%);  font-family: 'Pokemon Solid', sans-serif;
 }
 
+.welcome-game-font{
+  color: #07345a;
+}
+
+#cover-card{
+  width: 40%;
+}
+#cover-img{
+  width: 100%;
+}
+.pokemon-card-box{
+  width: 30%;
+}
 .container {
   display: grid;
   gap: 0;
@@ -25,20 +33,9 @@ button {
   border-radius: 3px;
 }
 
-.grid-vertical-align {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-}
-
 .score-board {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
   background: rgb(22, 105, 173);
   background: linear-gradient(180deg, rgba(22, 105, 173, 0.9360337885154062) 14%, rgba(0, 65, 119, 1) 74%, rgba(8, 57, 98, 1) 100%);
-  font-size: 2rem;
-  text-align: center;
-  padding-top: 1em;
   color: #f0bd10;
 }
 
@@ -46,26 +43,8 @@ button {
   margin: auto;
   width: 180px;
   height: 80px;
-  background: rgb(227, 59, 69);
   background: linear-gradient(260deg, rgba(227, 59, 69, 1) 0%, rgb(199 48 56 / 84%) 99%, rgb(234 27 38 / 93%) 99%);
-  font-size: 2rem;
   color: white
-}
-
-.welcome-pokemon-game {
-  display: grid;
-  
-}
-.welcome-pokemon-game > * {
-margin:auto;
-}
-.welcome-pokemon-game h1 {
-  font-size: 3rem;
-  
-}
-.welcome-pokemon-game p {
-  font-size: 2rem;
-  text-align: center;
 }
 
 .play-again-btn {
@@ -87,13 +66,13 @@ margin:auto;
   margin-inline: auto;
 }
 
-.card-inner {
+/* .card-inner {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
 
   transition: transform 0.6s;
   transform-style: preserve-3d;
-}
+} */
 
 .card-inner-rotation {
   transform: rotateY(180deg);
@@ -101,10 +80,6 @@ margin:auto;
 
 .card-front,
 .card-back {
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
-  width: 150px;
-  height: 209.54px;
   font-size: var(--fs-400);
   border-radius: 0.5rem;
   box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(--clr-secondary-400) / 0.25);
@@ -121,6 +96,7 @@ margin:auto;
   z-index: 100;
   background: rgb(22, 105, 173);
   background: linear-gradient(359deg, rgba(22, 105, 173, 0.8) 14%, rgb(24 88 142) 74%, rgb(28 72 108) 100%);
+  position:absolute
 }
 
 .pokemon-name {
@@ -128,8 +104,7 @@ margin:auto;
 }
 
 .pokemon-img {
-  padding-top: 1em;
-  margin: auto;
+
   width: 100%;
 }
 

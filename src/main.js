@@ -2,14 +2,16 @@
 
 // Utils
 function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex
+  var currentIndex = array.length
+  var randomIndex
+
   // While there remain elements to shuffle...
-  while (currentIndex != 0) {
+  while (currentIndex !== 0) {
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--
-    // And swap it with the current element.
+
+    // And swap it with the current element using destructuring assignment.
     ;[array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
       array[currentIndex],
@@ -20,8 +22,9 @@ function shuffle(array) {
 }
 
 function get_random_numbers() {
-  let generated_random_num = []
   const generate_total_pokemons = 10
+
+  var generated_random_num = []
   // Fill generated_random_num with uniques numbers
   while (generated_random_num.length < generate_total_pokemons) {
     random_number = Math.floor(Math.random() * (200 - 1) + 1)
@@ -33,11 +36,11 @@ function get_random_numbers() {
 
 // Pokemon cards animations, transitions and check if the selected cards are matching
 const rotation_css_style = 'card-inner-rotation'
-let first_pokemon_card = []
-let second_pokemon_card = []
-let matched_pokemons = []
-let game_running = false
-let matchPokemons_init = false
+var first_pokemon_card = []
+var second_pokemon_card = []
+var matched_pokemons = []
+var game_running = false
+var matchPokemons_init = false
 
 function matchPokemons(pokemon, card) {
   if (!game_running) {
@@ -79,16 +82,16 @@ function matchPokemons(pokemon, card) {
 }
 
 function removeWelcomeGameMsg() {
-  const welcome_container = document.getElementById('welcome-game-msg')
-  welcome_container.style.display = 'None'
+  const welcome_container = $('#welcome-pokemon-game')
+  welcome_container.addClass('d-none')
 }
 
-const pokemon_table_board = document.getElementById('pokemon-table-board')
+const pokemon_table_board = $('#pokemon-table-board')
 
 function buildPokemonBoardCards() {
   // Remove all HTML from pokemon table board. RESET
-  pokemon_table_board.classList.add('pokemon-table-board')
-  pokemon_table_board.innerHTML = ''
+  pokemon_table_board.addClass('pokemon-table-board')
+  pokemon_table_board.html('')
   // Shuffle array
   shuffle(pokemon_data)
   // Build the DOM with pokemons
@@ -97,16 +100,16 @@ function buildPokemonBoardCards() {
     const cardFront = document.createElement('div')
     const cardBack = document.createElement('div')
 
-    cardInner.classList.add('card-inner')
-    cardFront.classList.add('card-front')
-    cardBack.classList.add('card-back')
+    cardInner.addClass('card-inner')
+    cardFront.addClass('card-front')
+    cardBack.addClass('card-back')
 
     // Back card
     const cardBackImg = document.createElement('img')
-    cardBackImg.classList.add('pokemon-img')
+    cardBackImg.addClass('pokemon-img')
     cardBackImg.src = pokemon_data[key]['img']
     const cardBackTitle = document.createElement('h2')
-    cardBackTitle.classList.add('pokemon-name')
+    cardBackTitle.addClass('pokemon-name')
     cardBackTitle.innerText = pokemonName =
       // Capitalize pokemon name
       pokemon_data[key]['pokemon_name'].charAt(0).toUpperCase() +
@@ -129,28 +132,8 @@ function buildPokemonBoardCards() {
       matchPokemons(pokemon_data[key], cardInner)
     })
 
-    pokemon_table_board.appendChild(cardInner)
+    pokemon_table_board.append(cardInner)
   }
-}
-
-// Score boards
-const score_board = document.getElementById('score-board')
-const timer = document.getElementById('time')
-const score_mark = document.getElementById('score')
-let timer_p = document.createElement('p')
-let score_p = document.createElement('p')
-let timer_text = document.createTextNode('\u00A0')
-let score_text = document.createTextNode('\u00A0')
-
-function buildScoreBoard() {
-  timer_p.innerHTML = ''
-  score_p.innerHTML = ''
-
-  timer_p.appendChild(timer_text)
-  score_p.appendChild(score_text)
-
-  timer.appendChild(timer_p)
-  score_mark.appendChild(score_p)
 }
 
 // Display and generate final message with the result of the game
@@ -178,20 +161,20 @@ function endGame() {
   pokemon_table_board.appendChild(play_again_btn)
 }
 
-function startGame() {
-  let time = 60
-  let score = 0
-  time = time * 1000
+var gameSeconds = 60
+var scorePoints = 0
 
-  timer_text.nodeValue = time
-  score_text.nodeValue = score
+function startGame() {
+  gameSeconds = gameSeconds * 1000
+  $('#timer-p').text(gameSeconds)
+  $('#score-points-p').text(scorePoints)
   var game = setInterval(() => {
     game_running = true
-    if (time % 1000 == 0) {
-      timer_text.nodeValue = time / 1000
+    if (gameSeconds % 1000 == 0) {
+      $('#timer-p').text(gameSeconds / 1000)
     }
-    time = time - 25
-    score_text.nodeValue = matched_pokemons.length
+    gameSeconds = gameSeconds - 25
+    $('#score-points-p').text(matched_pokemons.length)
     if (matched_pokemons.length == pokemon_data.length - 10) {
       end_game_result.innerText = 'YOU WIN'
     }
@@ -206,7 +189,7 @@ function startGame() {
   }, 25)
 }
 
-const url = 'https://pokeapi.co/api/v2/pokemon/'
+const url = 'https://pokeapi.co/api/v2/pokemon/20'
 let pokemon_data = []
 let random_numbers = []
 
@@ -238,7 +221,6 @@ async function get_pokemons_promises() {
 }
 
 function App() {
-  buildScoreBoard()
   const play_btn = document.getElementById('play-btn')
   play_btn.addEventListener(
     'click',

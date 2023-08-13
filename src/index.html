@@ -1,45 +1,141 @@
 <!--index.html-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap"
-    rel="stylesheet">
-  <link href="http://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
-              
-  <link rel="stylesheet" href="default.css">
-  <!-- my css -->
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-  <div class="container">
-    <div class="score-board" id="score-board">
-      <div class="time grid-vertical-align" id="time"><h3>TIME</h3></div>
-      <div class="score grid-vertical-align" id="score"><h3>SCORE</h3></div>
-      <button class="play-btn" id="play-btn">PLAY</button>
-    </div>
-    <div class="welcome-pokemon-game" id="welcome-game-msg">
-      <h1>POKEMON CARDS GAME</h1>
-      <p>Welcome to the pokemon api game<br>
-      Press the button play to start ...<br><br>
-      Built with JS
-      </p>
-
-      <img src="cover-card.jpeg">
-    </div>
-    <div id="pokemon-table-board" hidden>
-      <!--Here is where the pokemons are displayed using div cards that are generated from JS-->
-
-    </div>
-  </div>
-<script src="./main.js">
-</script>
-	
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Pokemon game</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Pokemon fonts -->
+      <link href="http://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- <link rel="stylesheet" href="default.css"> -->
+      <!-- My styles -->
+      <link rel="stylesheet" href="styles.css">
+      <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+      <style>
+        .pokemon-card-box{
+         width: 120px;
+         position: relative;
+        }
+        .pokemon-card-box img{
+         height: 100%;
+         width: 100%;
+        }
+        .pokemon-img {
+         position: absolute;
+         left:0;
+         z-index: 99;
+        }
+     
+       </style>
+    </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row vh-100">
+            <div class="col-md-2 score-board vh-100 d-flex flex-column align-items-center justify-content-center" id="main-column">
+               <div class="row h-25">
+                  <div class="col-md-12 text-center" id="timer">
+                     <h2>TIME</h2>
+                     <p class="h3" id="timer-p">&nbsp;</p>
+                  </div>
+               </div>
+               <div class="row h-25">
+                  <div class="col-md-12 text-center" id="score-points">
+                     <h2>SCORE</h2>
+                     <p class="h3" id="score-points-p">&nbsp;</p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <button class="play-btn" id="play-btn">PLAY</button>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-10 d-flex flex-column align-items-center justify-content-center board-game h-100">
+               <div class="welcome-pokemon-game text-center" id="welcome-pokemon-game" hidden>
+                  <h1 class="h1 mb-4">POKEMON CARDS GAME</h1>
+                  <p class="h3 mb-5">Press the button play to start ... </p>
+                  <img class="rounded mt-3" id="cover-card" src="cover-card.jpeg" alt="pokemon cover card">
+               </div>
+               <div class="row">
+                <div class="row justify-content-center align-items-center g-2">
+                  <div class="col-auto pokemon-card-box">
+                    <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                    <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                </div>
+                <div class="row justify-content-center align-items-center g-2">
+                  <div class="col-auto pokemon-card-box">
+                    <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                    <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                </div>
+                <div class="row justify-content-center align-items-center g-2">
+                  <div class="col-auto pokemon-card-box">
+                    <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                    <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                </div>
+                <div class="row justify-content-center align-items-center g-2">
+                  <div class="col-auto pokemon-card-box">
+                    <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                    <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                  <div class="col-auto pokemon-card-box">
+                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
+                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>
+      </div>
+      <script src="./alternative.js"></script>
+   </body>
 </html>
