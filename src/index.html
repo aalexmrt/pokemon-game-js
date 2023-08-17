@@ -1,141 +1,143 @@
-<!--index.html-->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Pokemon game</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Pokemon fonts -->
-      <link href="http://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
-      <!-- Bootstrap -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <!-- <link rel="stylesheet" href="default.css"> -->
-      <!-- My styles -->
-      <link rel="stylesheet" href="styles.css">
-      <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
-      <style>
-        .pokemon-card-box{
-         width: 120px;
-         position: relative;
-        }
-        .pokemon-card-box img{
-         height: 100%;
-         width: 100%;
-        }
-        .pokemon-img {
-         position: absolute;
-         left:0;
-         z-index: 99;
-        }
-     
-       </style>
-    </head>
-   <body>
-      <div class="container-fluid">
-         <div class="row vh-100">
-            <div class="col-md-2 score-board vh-100 d-flex flex-column align-items-center justify-content-center" id="main-column">
-               <div class="row h-25">
-                  <div class="col-md-12 text-center" id="timer">
-                     <h2>TIME</h2>
-                     <p class="h3" id="timer-p">&nbsp;</p>
-                  </div>
-               </div>
-               <div class="row h-25">
-                  <div class="col-md-12 text-center" id="score-points">
-                     <h2>SCORE</h2>
-                     <p class="h3" id="score-points-p">&nbsp;</p>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-md-12">
-                     <button class="play-btn" id="play-btn">PLAY</button>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-10 d-flex flex-column align-items-center justify-content-center board-game h-100">
-               <div class="welcome-pokemon-game text-center" id="welcome-pokemon-game" hidden>
-                  <h1 class="h1 mb-4">POKEMON CARDS GAME</h1>
-                  <p class="h3 mb-5">Press the button play to start ... </p>
-                  <img class="rounded mt-3" id="cover-card" src="cover-card.jpeg" alt="pokemon cover card">
-               </div>
-               <div class="row">
-                <div class="row justify-content-center align-items-center g-2">
-                  <div class="col-auto pokemon-card-box">
-                    <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                    <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                </div>
-                <div class="row justify-content-center align-items-center g-2">
-                  <div class="col-auto pokemon-card-box">
-                    <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                    <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                </div>
-                <div class="row justify-content-center align-items-center g-2">
-                  <div class="col-auto pokemon-card-box">
-                    <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                    <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                </div>
-                <div class="row justify-content-center align-items-center g-2">
-                  <div class="col-auto pokemon-card-box">
-                    <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                    <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                  <div class="col-auto pokemon-card-box">
-                  <img class="cover-img" id="cover-img" src="cover-card.jpeg" alt="pokemon card">
-                  <img class="pokemon-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png">
-                  </div>
-                </div>
-              </div>
-            </div>
-         </div>
-      </div>
-      <script src="./alternative.js"></script>
-   </body>
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <style>
+
+    .board-score{
+      height: 20vh;
+      background-color: aqua;
+      
+    }
+    .board-game{
+      perspective: 500px;
+      height: 80vh;
+    }
+    .pokemon-card-box{
+      width: 140px;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+      transition: transform 0.3s;
+      transform-style: preserve-3d;
+    }
+
+    .pokemon-card-box-animation {
+      transform: rotateY( 180deg ) ;
+      transition: transform 0.2s;
+    }
+
+
+    .front-card, .back-card{
+      backface-visibility: hidden;
+      height: 100%;
+      width: 100%;
+    }
+    /*TODO align this in the middle*/
+    .back-card {
+      width: 90%!important;
+      position: absolute;
+      left:0;
+      padding-right: 1em;
+      top:0;
+      transform: rotateY( 180deg );
+    }
+
+    .card-inner-rotation {
+      transform: rotateY(180deg);
+      z-index: 2!important;
+    } 
+ 
+    .winner {
+      width: 100vw;
+      height: 100vh;
+      position:absolute;
+      top: 0%;
+      left: 0%;
+      display: grid;
+      place-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+
+    }
+    .winner .text{
+      background: #fbf3f3;
+      height: 300px;
+      width: 320px;
+      border: 4px solid #000;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;  
+    }
+
+    /* 16 */
+
+.custom-btn {
+
+  color: #fff;
+  width: 100px;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  background: #7b797917;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+.btn-16 {
+  border: none;
+  color: #000;
+}
+.btn-16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.btn-16:hover {
+  color: #000;
+}
+.btn-16:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn-16:active {
+  top: 2px;
+}
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <!--Main js-->
+  <script type="module" src="index.js"></script>
+</body>
+
 </html>
