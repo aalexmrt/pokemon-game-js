@@ -9,13 +9,13 @@ export const showCard = (item) => {
 }
 
 export const Card = (item, handleClick) => {
-  const img = item.sprites['front_default']
+  const img = item.sprites.other.dream_world['front_default']
 
   const divElement = document.createElement('div')
   divElement.classList.add('col-auto', 'm-2', 'pokemon-card-box')
 
   divElement.innerHTML = `
-    <img class="front-card" src="cover-card.jpeg" alt="cover pokemon image">
+    <img class="front-card" src="./assets/images/cover-card.jpeg" alt="cover pokemon image">
     <img class="back-card pokemon" src="${img}" alt="pokemon image">
  `
   divElement.addEventListener('click', handleClick)

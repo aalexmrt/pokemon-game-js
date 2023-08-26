@@ -1,5 +1,5 @@
 export const ScorePanel = (time, score, resetGame) => {
-  const scorePanelElement = document.createElement('div')
+  const scorePanelElement = document.createElement('section')
   scorePanelElement.classList.add('container-fluid')
 
   const Timer = (time) => {

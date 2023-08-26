@@ -1,143 +1,28 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-  <title>Title</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
 
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <style>
+    <link rel="stylesheet" href="index.css" />
+  </head>
 
-    .board-score{
-      height: 20vh;
-      background-color: aqua;
-      
-    }
-    .board-game{
-      perspective: 500px;
-      height: 80vh;
-    }
-    .pokemon-card-box{
-      width: 140px;
-      position: relative;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-
-      transition: transform 0.3s;
-      transform-style: preserve-3d;
-    }
-
-    .pokemon-card-box-animation {
-      transform: rotateY( 180deg ) ;
-      transition: transform 0.2s;
-    }
-
-
-    .front-card, .back-card{
-      backface-visibility: hidden;
-      height: 100%;
-      width: 100%;
-    }
-    /*TODO align this in the middle*/
-    .back-card {
-      width: 90%!important;
-      position: absolute;
-      left:0;
-      padding-right: 1em;
-      top:0;
-      transform: rotateY( 180deg );
-    }
-
-    .card-inner-rotation {
-      transform: rotateY(180deg);
-      z-index: 2!important;
-    } 
- 
-    .winner {
-      width: 100vw;
-      height: 100vh;
-      position:absolute;
-      top: 0%;
-      left: 0%;
-      display: grid;
-      place-items: center;
-      background-color: rgba(0, 0, 0, 0.7);
-
-    }
-    .winner .text{
-      background: #fbf3f3;
-      height: 300px;
-      width: 320px;
-      border: 4px solid #000;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;  
-    }
-
-    /* 16 */
-
-.custom-btn {
-
-  color: #fff;
-  width: 100px;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: bold;
-  background: #7b797917;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
-}
-.btn-16 {
-  border: none;
-  color: #000;
-}
-.btn-16:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: 0;
-  direction: rtl;
-  z-index: -1;
-  box-shadow:
-   -7px -7px 20px 0px #fff9,
-   -4px -4px 5px 0px #fff9,
-   7px 7px 20px 0px #0002,
-   4px 4px 5px 0px #0001;
-  transition: all 0.3s ease;
-}
-.btn-16:hover {
-  color: #000;
-}
-.btn-16:hover:after {
-  left: auto;
-  right: 0;
-  width: 100%;
-}
-.btn-16:active {
-  top: 2px;
-}
-  </style>
-</head>
-
-<body>
-  <div id="root"></div>
-  <!--Main js-->
-  <script type="module" src="index.js"></script>
-</body>
-
+  <body>
+    <div id="root"></div>
+    <!--Main js-->
+    <script type="module" src="index.js"></script>
+  </body>
 </html>

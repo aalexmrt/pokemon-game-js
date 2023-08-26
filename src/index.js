@@ -8,7 +8,7 @@ import { WinGame } from './components/WinGame.js'
 import { GameOver } from './components/GameOver.js'
 
 const TOTAL_POKEMONS = 6
-const GAME_DURATION_SECONDS = 5
+const GAME_DURATION_SECONDS = 30
 const TIMER_INTERVAL_MS = 1000
 
 let selectedCards = []
@@ -20,16 +20,14 @@ let updateGameScore = null
 let winGame = null
 let loseGame = null
 
-const resetGame = (e) => {
+const resetGame = () => {
   const lastGame = currentGame
   currentGame = null
   clearInterval(lastGame)
-  console.log(currentGame)
   selectedCards = []
   matchedCards = []
   score = 0
   time = GAME_DURATION_SECONDS
-
   Game()
 }
 
@@ -54,6 +52,7 @@ const handleClick = (e) => {
   selectedCards = []
   if (checkEndGame(matchedCards.length, TOTAL_POKEMONS)) {
     winGame()
+    // clearInterval(currentGame)
   }
 }
 
@@ -61,7 +60,6 @@ const startGameTimer = (timerText) => {
   currentGame = setInterval(() => {
     time--
     timerText.textContent = time
-    console.log(time)
     if (checkEndGame(matchedCards.length, TOTAL_POKEMONS)) {
       clearInterval(currentGame)
       return
@@ -100,8 +98,8 @@ const Game = async () => {
   let pokemonListCloned = [...pokemonList, ...pokemonList]
   pokemonListCloned = shuffleArray(pokemonListCloned)
   const boardGameElement = BoardGame(pokemonListCloned, handleClick)
-  const winGameElement = WinGame()
-  const loseGameElement = GameOver()
+  const winGameElement = WinGame(resetGame)
+  const loseGameElement = GameOver(resetGame)
   // Append Score Board and Board Game to DOM Element
   rootElement.appendChild(scorePanelElement)
   rootElement.appendChild(boardGameElement)

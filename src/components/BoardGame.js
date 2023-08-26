@@ -10,7 +10,7 @@ export const failSound = () => {
 }
 
 export const BoardGame = (pokemonsList, handleClick) => {
-  const divElement = document.createElement('div')
+  const divElement = document.createElement('section')
   divElement.innerHTML = `<div class="container"><div class="row board-game"></div></div>`
   const boardGame = divElement.querySelector('.board-game')
   const cardsList = CardsList(pokemonsList, handleClick)
